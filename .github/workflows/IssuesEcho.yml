@@ -1,0 +1,11 @@
+name: Issues Echo
+on: 
+  issues:
+    types:
+      - opened
+jobs: 
+  issues-echo-job:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Output Github repo issues
+          run: echo "${{ github.event.issue}}"
