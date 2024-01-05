@@ -30,8 +30,8 @@ jobs:
         run: echo "testing app..."
       - name: Run testing script
         run: |
-            npm install -g vite 
-            npm install -g vitest 
+            npm install --include=dev -g vite 
+            npm install --include=dev -g vitest 
             npm run test
   deploy-job:
     runs-on: ubuntu-latest
@@ -46,5 +46,5 @@ jobs:
         run: echo "deploying app..."
       - name: Run deployment script
         run: |
-            npm install -g vite 
+            npm install --include=dev -g vite 
             npm run build
