@@ -1,15 +1,15 @@
 name: Lint, Test, Deploy
 on: push
 jobs: 
-
-  npm-init-job: 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Initializing NPM
-        run: npm ci
   lint-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        run: actions/checkout@v3
+      - name: install NodeJS
+        run: actions/setup-node@v3
+        with: 
+          node-version: 18
       - name: Signal lint start
         run: echo "linting app..."
       - name: Run linting script
@@ -17,6 +17,12 @@ jobs:
   test-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        run: actions/checkout@v3
+      - name: install NodeJS
+        run: actions/setup-node@v3
+        with: 
+          node-version: 18
       - name: Signal test start
         run: echo "testing app..."
       - name: Run testing script
@@ -24,6 +30,12 @@ jobs:
   deploy-job:
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        run: actions/checkout@v3
+      - name: install NodeJS
+        run: actions/setup-node@v3
+        with: 
+          node-version: 18
       - name: Signal deployment start
         run: echo "deploying app..."
       - name: Run deployment script
