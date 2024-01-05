@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Initializing NPM
-        run: npm init 
+        run: npm ci
   lint-job:
     runs-on: ubuntu-latest
     steps:
