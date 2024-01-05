@@ -13,8 +13,12 @@ jobs:
       - name: Signal lint start
         run: echo "linting app..."
       - name: Run linting script
-        run: npm run lint
+        run: |
+            npm -g i eslint-cli
+            npm i eslint --save-dev
+            npm run lint
   test-job:
+    needs: lint-job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -26,8 +30,11 @@ jobs:
       - name: Signal test start
         run: echo "testing app..."
       - name: Run testing script
-        run: npm run test
+        run: |
+            npm install -g vitest 
+            npm run test
   deploy-job:
+    needs: [lint-job, test-job]
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -39,4 +46,6 @@ jobs:
       - name: Signal deployment start
         run: echo "deploying app..."
       - name: Run deployment script
-        run: npm run build
+        run: |
+            npm install -g vite 
+            npm run build
