@@ -18,7 +18,6 @@ jobs:
             npm i eslint --save-dev
             npm run lint
   test-job:
-    needs: lint-job
     runs-on: ubuntu-latest
     steps:
       - name: Get code
@@ -35,7 +34,6 @@ jobs:
             npm install -g vitest 
             npm run test
   deploy-job:
-    needs: [lint-job, test-job]
     runs-on: ubuntu-latest
     steps:
       - name: Get code
