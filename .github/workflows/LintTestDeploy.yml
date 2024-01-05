@@ -1,0 +1,24 @@
+name: Lint, Test, Deploy
+on: push
+jobs: 
+  lint-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Signal lint start
+        run: echo "linting app..."
+      - name: Run linting script
+        run: npm run lint
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Signal test start
+        run: echo "testing app..."
+      - name: Run testing script
+        run: npm run test
+  deploy-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Signal deployment start
+        run: echo "deploying app..."
+      - name: Run deployment script
+        run: npm run build
