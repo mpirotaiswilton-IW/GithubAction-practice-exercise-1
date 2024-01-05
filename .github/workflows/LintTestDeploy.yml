@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        run: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: install NodeJS
-        run: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with: 
           node-version: 18
       - name: Signal lint start
@@ -18,9 +18,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        run: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: install NodeJS
-        run: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with: 
           node-version: 18
       - name: Signal test start
@@ -31,9 +31,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
-        run: actions/checkout@v3
+        uses: actions/checkout@v3
       - name: install NodeJS
-        run: actions/setup-node@v3
+        uses: actions/setup-node@v3
         with: 
           node-version: 18
       - name: Signal deployment start
