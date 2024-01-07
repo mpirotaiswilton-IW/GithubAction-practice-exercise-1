@@ -30,21 +30,21 @@ jobs:
         run: echo "testing app..."
       - name: Run testing script
         run: |
-            npm install --include=dev -g vite 
-            npm install --include=dev -g vitest 
+            npm install
             npm run test
   deploy-job:
     runs-on: ubuntu-latest
     steps:
       - name: Get code
         uses: actions/checkout@v3
-      - name: install NodeJS
+      - name: Set up NodeJS
         uses: actions/setup-node@v3
         with: 
           node-version: 18
       - name: Signal deployment start
         run: echo "deploying app..."
-      - name: Run deployment script
+      - name: Run build script
         run: |
-            npm install --include=dev -g vite 
+            npm install
             npm run build
+
